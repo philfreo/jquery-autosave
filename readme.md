@@ -191,7 +191,7 @@ The built-in callback methods for determining whether or not to save.
 * **interval**  
   Only save on intervals. If anything else triggers an autosave, it will wait until the next interval to save.
 * **valuesChanged**
-* Just like 'changed', but doesn't wait for `onChange` events, so it will return true if a textbox has been edited but has not yet lost focus.
+  Just like 'changed', but doesn't wait for `onChange` events, so it will return true if a textbox has been edited but has not yet lost focus.
 
 #### Arguments
 
