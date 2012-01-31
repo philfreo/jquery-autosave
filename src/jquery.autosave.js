@@ -565,6 +565,24 @@
       method: function() {
         return this.changedInputs().length > 0;
       }
+    },
+    /**
+     * This condition returns true if any of the values of the fields have changed.
+     * This differs from the 'changed' condition callback which waits for field
+     * onChange events and those don't get fired until the current input loses
+     * focus. Using this condition callback allows you to use an interval-based
+     * trigger to autosave while a user is still typing in a textbox, without
+     * calling unnecessary save() events if the values haven't changed.
+     */ 
+    valuesChanged: {
+      method: function() {
+        var curSerialized = this.forms().serialize();
+        if (!this.lastSerialized || curSerialized !== this.lastSerialized) {
+          this.lastSerialized = curSerialized;
+          return true;
+        }
+        return false;
+      }
     }
   });
 
